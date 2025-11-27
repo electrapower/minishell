@@ -6,7 +6,7 @@
 /*   By: asalniko <asalniko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 18:55:41 by asalniko          #+#    #+#             */
-/*   Updated: 2025/10/10 00:20:20 by asalniko         ###   ########.fr       */
+/*   Updated: 2025/11/27 16:00:00 by asalniko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ void	arglist_clear(t_arglist **head, int free_strings)
 	t_arglist	*node;
 	t_arglist	*next;
 
+	if (!head || !*head)
+		return ;
 	node = *head;
 	while (node)
 	{

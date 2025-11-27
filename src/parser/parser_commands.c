@@ -6,7 +6,7 @@
 /*   By: asalniko <asalniko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 18:11:55 by asalniko          #+#    #+#             */
-/*   Updated: 2025/11/15 19:25:27 by asalniko         ###   ########.fr       */
+/*   Updated: 2025/11/27 16:01:26 by asalniko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,9 +93,14 @@ static t_command	*finalize_command(t_command *cmd, t_arglist **alist,
 		return (NULL);
 	}
 	cmd->args = arglist_to_argv(*alist);
-	if (!cmd->args && *alist)
+	if (!cmd->args)
+	{
 		arglist_clear(alist, 1);
-	if (*alist)
+		quotedlist_clear(qlist);
+		free_command(cmd);
+		return (NULL);
+	}
+	if (*qlist)
 		cmd->arg_quoted = quotedlist_to_array(*qlist);
 	arglist_clear(alist, 0);
 	quotedlist_clear(qlist);

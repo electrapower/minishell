@@ -25,3 +25,4 @@ void	ft_free_token(void *token_ptr)
 	token->value = NULL;
 	free(token);
 }
+

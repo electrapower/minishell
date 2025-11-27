@@ -6,7 +6,7 @@
 /*   By: asalniko <asalniko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 15:45:37 by ltoscani          #+#    #+#             */
-/*   Updated: 2025/11/26 23:06:26 by asalniko         ###   ########.fr       */
+/*   Updated: 2025/11/27 15:14:28 by asalniko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,11 +67,8 @@ static void	process_input(char *line, t_data *data)
 		ft_lstclear(&tokens, ft_free_token);
 		return ;
 	}
-	if (pipeline)
-	{
-		execute_pipeline(pipeline, data);
-		free_pipeline(pipeline);
-	}
+	execute_pipeline(pipeline, data);
+	free_pipeline(pipeline);
 	ft_lstclear(&tokens, ft_free_token);
 }
 
@@ -113,5 +110,3 @@ int	main(int argc, char **argv, char **envp)
 	data.env = NULL;
 	return (data.exit_status);
 }
-
-

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser_command_helper2.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: asalniko <asalniko@student.42berlin.d      +#+  +:+       +#+        */
+/*   By: asalniko <asalniko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 23:56:55 by asalniko          #+#    #+#             */
-/*   Updated: 2025/10/10 00:11:02 by asalniko         ###   ########.fr       */
+/*   Updated: 2025/11/27 16:00:31 by asalniko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,8 @@ void	quotedlist_clear(t_quotedlist **head)
 	t_quotedlist	*node;
 	t_quotedlist	*next;
 
+	if (!head || !*head)
+		return ;
 	node = *head;
 	while (node)
 	{
